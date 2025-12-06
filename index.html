@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutengo wa Banja — Family Tree</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'var(--bg)',
+              card: 'var(--card)',
+              accent: 'var(--accent)',
+              muted: 'var(--muted)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.3s ease-out',
+              'slide-in': 'slideIn 0.3s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateY(10px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --accent: #2563eb;
+        --muted: #64748b;
+      }
+      .dark {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --accent: #60a5fa;
+        --muted: #94a3b8;
+      }
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+        transition: background-color 0.3s;
+      }
+      .dark body {
+        color: #e2e8f0;
+      }
+      
+      /* Dot Pattern Background */
+      .bg-dot-pattern {
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .dark .bg-dot-pattern {
+        background-image: radial-gradient(#1e293b 1px, transparent 1px);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      /* Tree Connector Lines */
+      .tree-connector {
+        position: relative;
+      }
+      .tree-connector::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 23px;
+        width: 1px;
+        background-color: #e2e8f0;
+        z-index: 0;
+      }
+      .dark .tree-connector::before {
+        background-color: #334155;
+      }
+      
+      /* Grid Animation Utility */
+      .grid-expand {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease-in-out;
+      }
+      .grid-expand.expanded {
+        grid-template-rows: 1fr;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
